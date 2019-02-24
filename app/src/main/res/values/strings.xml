@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SoftpointTools</string>
+    <string name="app_menu_titulo">Opciones</string>
+    <!-- Botones Menu -->
+    <string name="btnRecepcionOffLine">Recepcion fuera de linea</string>
+    <string name="btnRecepcionOnLine">Recepcion en linea</string>
+
+    <string name="btnInventario">Toma de Inventario</string>
+    <string name="btnConsultaPrecios">Consulta de Precios</string>
+    <string name="btnSalir">Salir</string>
 </resources>

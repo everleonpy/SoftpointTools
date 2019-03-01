@@ -33,13 +33,20 @@
             android:id="@+id/btnRecepcionOffLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btnRecepcionOffLine" />
+            android:drawableLeft="@drawable/invent_off_line_24dp"
+            android:drawablePadding="5dp"
+            android:text="@string/btnRecepcionOffLine"
+            android:textAlignment="textStart" />
 
         <Button
             android:id="@+id/btnRecepcionOnLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btnRecepcionOnLine" />
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/invent_on_line_24dp"
+            android:text="@string/btnRecepcionOnLine"
+
+            android:textAlignment="textStart" />
 
         <Button
             android:id="@+id/btnInventario"

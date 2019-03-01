@@ -16,10 +16,11 @@ public class Usuario implements Serializable {
 	private Long id;
 	private String name;
 	private String nombreCompleto;
+	private String password;
 	private Long orgId;
 	private Long unitId;
-	
-	
+
+
 	public Long getId() {
 		return id;
 	}
@@ -38,6 +39,8 @@ public class Usuario implements Serializable {
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}
+	public String getPassword() {return password;}
+	public void setPassword(String password) { this.password = password;}
 	public Long getOrgId() {
 		return orgId;
 	}
@@ -51,5 +54,4 @@ public class Usuario implements Serializable {
 		this.unitId = unitId;
 	}
 
-	
 }

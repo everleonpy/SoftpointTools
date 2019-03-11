@@ -23,11 +23,12 @@ import org.json.JSONObject;
 import java.net.HttpURLConnection;
 
 import py.com.softpoint.pojos.Usuario;
+import py.com.softpoint.utils.ImportUsuarios;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText txt_usuario, txt_password;
-    private Button btnIngresar;
+    private Button btnIngresar, btnImportar;
     private String error;
     private Context ctx;
 
@@ -40,7 +41,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_password = (EditText) findViewById(R.id.password);
 
         btnIngresar = (Button) findViewById(R.id.btnIngresar);
+        btnImportar = (Button) findViewById(R.id.btnImportar);
+
         btnIngresar.setOnClickListener(this);
+        btnImportar.setOnClickListener(this);
     }
 
     @Override
@@ -52,7 +56,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 ClienteWsLogin cli = new ClienteWsLogin(getApplication());
                 cli.execute(txt_usuario.getText().toString());
+                break;
             }
+             case R.id.btnImportar:{
+
+                 ImportUsuarios imp = new ImportUsuarios(this);
+                 imp.RunProcess();
+
+                 break;
+             }
 
 
             default: break;

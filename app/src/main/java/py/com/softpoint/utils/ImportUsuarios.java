@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
+import py.com.softpoint.daos.UsuarioDao;
 import py.com.softpoint.database.ConexionDbHelper;
 import py.com.softpoint.database.UtilsDb;
 import py.com.softpoint.pojos.Usuario;
@@ -24,6 +25,7 @@ import py.com.softpoint.pojos.Usuario;
 public class ImportUsuarios {
 
     private Context context;
+    private UsuarioDao usrDao;
 
     public ImportUsuarios(Context context) {
         this.context = context;
@@ -63,7 +65,11 @@ public class ImportUsuarios {
                         String respStr = EntityUtils.toString(httpr.getEntity());
                         JSONArray listUser = new JSONArray(respStr);
 
+                        //TODO  Preparamos el DAO
+                        usrDao = new UsuarioDao(context);
+
                         for( int i = 0; i < listUser.length(); i++){
+
                             JSONObject obj = listUser.getJSONObject(i);
 
                             Usuario usr = new Usuario();
@@ -76,6 +82,7 @@ public class ImportUsuarios {
 
                             Log.i("USER", " id :"+usr.getId());
 
+                            usrDao.guardar(usr);
 
                         }
 
@@ -84,6 +91,8 @@ public class ImportUsuarios {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
